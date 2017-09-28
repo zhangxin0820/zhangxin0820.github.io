@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="cn" manifest="welcome_offline.manifest">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="Keywords" content="Xin Zhang">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="author" content="Xin Zhang">
+    <link href="https://avatars1.githubusercontent.com/u/18718939?v=3&s=40" rel="Shortcut Icon" type="image/x-icon">
+    <title>Xin Zhang</title>
+    <link href="css/welcome_offline.css" type="text/css" rel="stylesheet" media="all">
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+</head>
+<body class="loaded">
+<div id="container" class="container modify">
+    <div id="homePage" class="page home-page show-frontend">
+        <h1 class="logo home-logo">
+            <span class="a">Xin </span> <span class="b"> Zhang</span>
+            <!--<span class="c">Home</span>-->
+        </h1>
+        <ul id="selectNav" class="select-nav">
+            <span class="selection"></span>
+            <li class="frontend"><a href="./index.html"> <strong>Xin&#39;s Website
+            </strong> <span class="alive icon"> <span class="bar a"></span>
+							<span class="bar b"></span> <span class="bar c"></span>
+					</span>
+                <small>Welcome to Xin's website.</small>
+            </a></li>
+            <li class="design"><a
+                    href=""> <strong>Xin&#39;s
+                Jianshu Blog</strong>
+                <small>This is my Jianshu blog.</small>
+            </a></li>
+            <li class="diary"><a
+                    href="https://github.com/zhangxin0820">
+                <strong>GitHub</strong>
+                <small>Welcome to my GitHub and follow me.</small>
+            </a></li>
+        </ul>
+        <div class="spinner spinning">
+				<span class="rings"> <span class="ring zero"></span> <span
+                        class="ring one"></span> <span class="ring two"></span> <span
+                        class="ring three"></span>
+				</span>
+            <div class="preview-frontend">
+					<span class="preview-mini" data-class="frontend"> <span
+                            class="symbol"> <span class="text">Home</span>
+					</span>
+					</span> <span class="preview-full"> <span class="circle backdrop"></span>
+						<span class="circle backdrop two"></span> <span
+                        class="circle backdrop three"></span> <a href="http://blog.csdn.net/gane_cheng"
+                                                                 class="circle"> <span
+                        class="the-circle"></span> <strong>1</strong>
+							<small>Xin&#39;s Site</small>
+					</a> <a href="http://blog.csdn.net/gane_cheng" class="two circle"> <span class="the-circle"></span>
+							<strong>2</strong> <small>About</small>
+					</a> <a href="http://blog.csdn.net/gane_cheng" class="three circle"> <span
+                        class="the-circle"></span> <strong>3</strong> <small>Me</small>
+					</a>
+					</span>
+            </div>
+            <div class="preview-design">
+					<span class="preview-mini" data-class="design"> <span
+                            class="symbol"> <span class="text">Blog</span>
+					</span>
+					</span> <span class="preview-full"> <span
+                    class="big-circle backdrop"></span> <a href="http://blog.csdn.net/gane_cheng"
+                                                           class="big-circle"> <span class="the-circle"></span> <strong>1</strong>
+							<small>Post blogs</small>
+					</a>
+					</span>
+            </div>
+            <div class="preview-diary">
+					<span class="preview-mini" data-class="diary"> <span
+                            class="symbol"> <span class="text">GitHub</span>
+					</span>
+					</span> <span class="preview-full"> <span
+                    class="big-circle backdrop"></span> <a
+                    href="https://github.com/zhangxin0820"
+                    class="big-circle"> <span class="the-circle"></span> <strong>1</strong>
+							<small>GitHub</small>
+					</a>
+					</span>
+            </div>
+        </div>
+        <div class="spinner stationary">
+            <div class="preview spinner-frontend">
+                <div class="map-content">
+                    <span class="the-map"></span> <span class="bilp"> <span
+                        class="bilp-ring one"></span> <span class="bilp-ring two"></span>
+							<span class="bilp-ring three"></span> <span class="center"></span>
+						</span>
+                </div>
+                <div class="detail">
+                    <h3>Xin is from</h3>
+                    <h4>Beijing, China</h4>
+                </div>
+            </div>
+            <div class="preview spinner-design">
+                <div class="preview-article">
+                    <h3>Xin&#39;s Jianshu Blog</h3>
+                    <p>I have the only blog space, the hyperlink below will lead
+                        you there --- my Jianshu Blog address.</p>
+                    <a href="http://blog.csdn.net/gane_cheng"
+                       class="goto">Jianshu Blog</a>
+                </div>
+            </div>
+            <div class="preview spinner-diary">
+                <div class="preview-article">
+                    <h2>GitHub</h2>
+                    <p>I am so glad to major in IT. I enjoy programming very much!</p>
+                    <a
+                            href="https://github.com/ganecheng"
+                            class="goto">See More</a>
+                </div>
+            </div>
+        </div>
+        <footer class="home-footer">
+            <p class="copyright">
+                <a href="http://www.zhangxin820.me">About Me</a>
+            </p>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        var app = {
+            init: function () {
+                this.initPage();
+                this.loadPage();
+                this.bindLinkJump();
+            },
+            initPage: function () {
+                var page = $('.page'), body = $('body');
+                if (page.hasClass('home-page')) {
+                    this.bindHomeEvent();
+                }
+                if (page.hasClass('post-page')) {
+                    setTimeout(function () {
+                        body.addClass('scrollable');
+                    }, 1500);
+                }
+            },
+            loadPage: function () {
+                var body = $('body'), value = 0, interval = setInterval(
+                    function () {
+                        value++;
+                        if (document.readyState === "interactive"
+                            || document.readyState === "complete"
+                            || document.readyState === "Loaded") {
+                            if (!body.hasClass('loading')) {
+                                body.addClass('loading');
+                            }
+                            ;
+                        }
+                        ;
+                        if (value >= 16) {
+                            body.removeClass('loading');
+                            body.addClass('loaded');
+                            clearInterval(interval);
+                        }
+                        ;
+                    }, 50);
+            },
+            bindLinkJump: function () {
+                var body = $('body'), a = document
+                    .getElementsByTagName('a');
+                $(a).bind('click', function (e) {
+                    e.preventDefault();
+                    var self = $(this);
+                    var link = self.attr('href');
+                    if (self.attr('target')) {
+                        window.open(link);
+                    } else {
+                        body.removeClass('scrollable');
+                        body.removeClass('loaded');
+                        body.addClass('quiting');
+                        setTimeout(function () {
+                            window.location.href = link;
+                            clearTimeout();
+                        }, 800);
+                    }
+                })
+            },
+            bindHomeEvent: function () {
+                var homePage = $('#homePage'), selectNav = $('#selectNav'), previewMini = $('.preview-mini'), data;
+
+                // 事件绑定
+                selectNav.find('li').bind('mouseenter', function (event) {
+                    homePage.spinClass($(this).attr('class'));
+                });
+                previewMini.bind('click', function (event) {
+                    data = $(this).attr('data-class');
+                    homePage.spinClass(data);
+                });
+
+                // 转盘class操作
+                $.prototype.spinClass = function (_class) {
+                    $(this).removeClass('show-frontend');
+                    $(this).removeClass('show-design');
+                    $(this).removeClass('show-diary');
+                    $(this).addClass('show-' + _class);
+                };
+            }
+        }
+        app.init();
+    </script>
+</div>
+
+</body>
+</html>
